@@ -10,7 +10,7 @@ import com.example.kotlinnote.data.entity.NoteRealm
 import io.realm.RealmResults
 import kotlinx.android.synthetic.main.item_note.view.*
 
-class NotesRWAdapter : RecyclerView.Adapter<NotesRWAdapter.ViewHolder>() {
+class NestedNotesRWAdapter : RecyclerView.Adapter<NestedNotesRWAdapter.ViewHolder>() {
 
 
     var notes: List<Note> = listOf()

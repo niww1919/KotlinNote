@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="5dp"
-    android:layout_marginStart="20dp"
-
     >
 
     <LinearLayout
@@ -14,13 +12,19 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_marginStart="10dp"
-            android:id="@+id/text_note"
+            android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Title" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_child"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+
 
     </LinearLayout>
 
-</RelativeLayout>
+</androidx.cardview.widget.CardView>
