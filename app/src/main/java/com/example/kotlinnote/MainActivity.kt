@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        rv.layoutManager = GridLayoutManager(this, 2)
+        rv.layoutManager = GridLayoutManager(this, 1)
         adapter = NotesRWAdapter()
         rv.adapter = adapter
 
