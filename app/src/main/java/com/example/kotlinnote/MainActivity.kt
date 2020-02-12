@@ -82,10 +82,6 @@ class MainActivity : AppCompatActivity() {
         itemTouch.attachToRecyclerView(recyclerView)
 
 
-//        viewModel.viewState().observe(this, Observer {
-//            it?.let { adapter.notes = it.notes }
-//
-//        })
 
     }
 
