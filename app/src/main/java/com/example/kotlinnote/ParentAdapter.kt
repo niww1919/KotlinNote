@@ -5,9 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlinnote.data.entity.NoteRealm
 import com.example.kotlinnote.data.entity.ParentModel
+import io.realm.kotlin.createObject
+import io.realm.kotlin.where
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.parent_rv.view.*
 
@@ -36,6 +41,41 @@ class ParentAdapter(private val parents : List<ParentModel>) :    RecyclerView.A
             layoutManager = childLayoutManager
             adapter = ChildAdapter(parent.children)
             setRecycledViewPool(viewPool)
+
+            val itemTouch = ItemTouchHelper(object :
+                ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean {
+                    return false
+                }
+
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    if (direction == ItemTouchHelper.LEFT) {
+
+//                        realm.executeTransaction {
+//                                realm ->
+//                            val myNote = realm.createObject<NoteRealm>()
+//                            myNote.myNote = "Test"
+//
+//                            Toast.makeText(this, realm.where<NoteRealm>().findAll().asJSON(), Toast.LENGTH_SHORT).show()
+//                        }
+
+
+                    }
+                    if (direction == ItemTouchHelper.RIGHT) {
+                    }
+
+                }
+
+            })
+//        itemTouch.attachToRecyclerView(rv_parent)
+            itemTouch.attachToRecyclerView(holder.recyclerView)
+
+
         }
 
     }

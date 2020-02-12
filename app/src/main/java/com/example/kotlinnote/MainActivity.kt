@@ -47,39 +47,7 @@ class MainActivity : AppCompatActivity() {
 //        adapter = NotesRWAdapter()
 //        rv_parent.adapter = adapter
 
-        val itemTouch = ItemTouchHelper(object :
-            ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
 
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                if (direction == ItemTouchHelper.LEFT) {
-
-                    realm.executeTransaction {
-                        realm ->
-                        val myNote = realm.createObject<NoteRealm>()
-                        myNote.myNote = "Test"
-
-                    Toast.makeText(this@MainActivity, realm.where<NoteRealm>().findAll().asJSON(), Toast.LENGTH_SHORT).show()
-                    }
-
-
-                }
-                if (direction == ItemTouchHelper.RIGHT) {
-                    Toast.makeText(this@MainActivity, "RIGHT", Toast.LENGTH_SHORT).show()
-                }
-
-            }
-
-        })
-//        itemTouch.attachToRecyclerView(rv_parent)
-        itemTouch.attachToRecyclerView(recyclerView)
 
 
 
