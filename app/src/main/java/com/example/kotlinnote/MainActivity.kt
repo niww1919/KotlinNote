@@ -41,16 +41,6 @@ class MainActivity : AppCompatActivity() {
         initRecycler()
 
 
-//        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-//
-//        rv_parent.layoutManager = GridLayoutManager(this, 1)
-//        adapter = NotesRWAdapter()
-//        rv_parent.adapter = adapter
-
-
-
-
-
     }
 
     private fun initRecycler() {
