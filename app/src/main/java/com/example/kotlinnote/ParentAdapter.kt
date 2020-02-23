@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinnote.data.entity.NoteRealm
 import com.example.kotlinnote.data.entity.ParentModel
-import io.realm.kotlin.createObject
-import io.realm.kotlin.where
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.parent_rv.view.*
 
