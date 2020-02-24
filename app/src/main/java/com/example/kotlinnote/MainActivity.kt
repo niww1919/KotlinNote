@@ -3,8 +3,11 @@ package com.example.kotlinnote
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinnote.data.entity.NoteRealm
@@ -16,9 +19,9 @@ import kotlinx.android.synthetic.main.parent_rv.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var realm:Realm
+    lateinit var realm: Realm
     lateinit var viewModel: MainViewModel
-    lateinit var note:NoteRealm
+    lateinit var note: NoteRealm
 
 //    lateinit var adapter: NotesRWAdapter
 
@@ -38,11 +41,11 @@ class MainActivity : AppCompatActivity() {
 
         initRecycler()
 
-        val botton =findViewById<View>(R.id.btn_add_item)
-        botton?.setOnClickListener {
-            Toast.makeText(baseContext , "Done", Toast.LENGTH_SHORT).show()
 
-        }
+//        btn_add_item.setOnClickListener {
+//            Toast.makeText(baseContext, "Done", Toast.LENGTH_SHORT).show()
+//
+//        }
 
 //        btn_add_item.setOnClickListener {
 //            View.OnClickListener {
@@ -63,11 +66,14 @@ class MainActivity : AppCompatActivity() {
         recyclerView = rv_parent
 
         recyclerView.apply {
-            layoutManager = LinearLayoutManager(this@MainActivity,
-                RecyclerView.VERTICAL, false)
+            layoutManager = LinearLayoutManager(
+                this@MainActivity,
+                RecyclerView.VERTICAL, false
+            )
             adapter = ParentAdapter(
                 ParentDataFactory
-                .getParents(5))
+                    .getParents(5)
+            )
         }
     }
 

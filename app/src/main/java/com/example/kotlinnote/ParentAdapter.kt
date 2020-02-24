@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -38,6 +39,8 @@ class ParentAdapter(private val parents: List<ParentModel>) : RecyclerView.Adapt
     ) {
         val parent = parents[position]
         holder.textView.text = parent.title
+        holder.btn.text ="btn"
+
         val childLayoutManager = LinearLayoutManager(
             holder.recyclerView.context,
             RecyclerView.VERTICAL,
@@ -95,5 +98,6 @@ class ParentAdapter(private val parents: List<ParentModel>) : RecyclerView.Adapt
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val recyclerView: RecyclerView = itemView.rv_child
         val textView: TextView = itemView.tv_title
+        val btn: AppCompatButton = itemView.btn_add_item
     }
 }
