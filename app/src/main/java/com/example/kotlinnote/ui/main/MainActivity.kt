@@ -1,18 +1,17 @@
-package com.example.kotlinnote
+package com.example.kotlinnote.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Adapter
-import android.widget.GridLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.kotlinnote.NotesRWAdapter
+import com.example.kotlinnote.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var viewModel:MainViewModel
+    lateinit var viewModel: MainViewModel
     lateinit var adapter: NotesRWAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +22,14 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         rv.layoutManager = GridLayoutManager(this, 2)
-        adapter = NotesRWAdapter()
+
+
+
+        adapter = NotesRWAdapter({ note ->
+            //todo launch note screen
+        })
+
+
         rv.adapter = adapter
 
         viewModel.viewState().observe(this, Observer {
