@@ -46,7 +46,7 @@ class NotesRWAdapter (val onItemViewClick: ((note:Note) -> Unit)? = null) : Recy
             }
 
 
-            (this as CardView).setCardBackgroundColor(ContextCompat.getColor(itemView.context,color))
+//            (this as CardView).setCardBackgroundColor(ContextCompat.getColor(itemView.context,color))
 
             itemView.setOnClickListener {
                 onItemViewClick?.invoke(note)

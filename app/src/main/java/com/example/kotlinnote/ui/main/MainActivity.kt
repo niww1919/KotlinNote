@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.kotlinnote.NotesRWAdapter
 import com.example.kotlinnote.R
+import com.example.kotlinnote.ui.main.note.NoteActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -26,8 +27,10 @@ class MainActivity : AppCompatActivity() {
 
 
         adapter = NotesRWAdapter({ note ->
-            //todo launch note screen
+            NoteActivity.start(this,note)
+
         })
+
 
 
         rv.adapter = adapter
@@ -36,5 +39,10 @@ class MainActivity : AppCompatActivity() {
             it?.let { adapter.notes = it.notes }
 
         })
+
+        fbt.setOnClickListener {
+
+            NoteActivity.start(this)
+        }
     }
 }
